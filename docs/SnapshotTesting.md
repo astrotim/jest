@@ -54,7 +54,7 @@ One such situation can arise if we intentionally change the address the Link com
 
 ```javascript
 // Updated test case with a Link to a different address
-it('renders correctly', () => {  
+it('renders correctly', () => {
   const tree = renderer.create(
     <Link page="http://www.instagram.com">Instagram</Link>
   ).toJSON();
@@ -75,6 +75,8 @@ jest --updateSnapshot
 ```
 
 Go ahead and accept the changes by running the above command. You may also use the equivalent single-character `-u` flag to re-generate snapshots if you prefer. This will re-generate snapshot artifacts for all failing snapshot tests. If we had any additional failing snapshot tests due to an unintentional bug, we would need to fix the bug before re-generating snapshots to avoid recording snapshots of the buggy behavior.
+
+> Note: the above command will only if Jest is installed globally. Use `node_modules/.bin/jest --updateSnapshot` in your your npm scripts, or `npm test -- -u` if you are running your tests with `npm test`.
 
 If you'd like to limit which snapshot test cases get re-generated, you can pass an additional `--testNamePattern` flag to re-record snapshots only for those tests that match the pattern.
 
